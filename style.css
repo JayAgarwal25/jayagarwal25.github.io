@@ -1,0 +1,271 @@
+:root {
+  --sky:      #88bcd4;  /* outer sky blue */
+  --panel:    #f2e4c0;  /* light warm cream interior */
+  --panel-lt: #f8f0d8;  /* lighter cream */
+  --panel-dk: #dfc090;  /* banner tan */
+  --border:   #7a4e2a;  /* dark brown */
+  --rim:      #e09848;  /* lighter orange rim */
+  --text:     #3d2010;  /* dark brown text */
+  --muted:    #7a5e40;  /* medium brown */
+  --gold:     #e8b820;  /* bright game gold */
+  --green:    #4a8030;  /* grass green */
+  --link:     #3a6820;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: linear-gradient(to bottom, var(--sky) 70%, #5a9e32 70%);
+  background-attachment: fixed;
+  overscroll-behavior: none;
+  color: var(--text);
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  line-height: 1.75;
+}
+
+/* pixel grass — fixed so it never detaches (overscroll disabled) */
+html::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(70% - 10px);
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Crect x='0' y='3' width='3' height='7' fill='%234a9820'/%3E%3Crect x='1' y='0' width='2' height='10' fill='%235ab030'/%3E%3Crect x='4' y='5' width='3' height='5' fill='%234a9820'/%3E%3Crect x='5' y='2' width='2' height='8' fill='%235ab030'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 8px 10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* pixel sun */
+html::before {
+  content: '';
+  position: fixed;
+  width: 44px;
+  height: 44px;
+  background: #ffe840;
+  top: 8%;
+  right: 10%;
+  z-index: 0;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 6px rgba(255, 240, 80, 0.3),
+    0 0 0 12px rgba(255, 240, 80, 0.12);
+}
+
+
+body {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2.5rem 2rem 4rem;
+  background: var(--panel);
+  position: relative;
+  z-index: 1;
+  /* rope/twisted-cord border */
+  border: 7px solid transparent;
+  border-image: repeating-linear-gradient(
+    -45deg,
+    #8a5020 0, #8a5020 3px,
+    #d48040 3px, #d48040 6px,
+    #8a5020 6px, #8a5020 7px
+  ) 7;
+  box-shadow:
+    inset 0 0 0 2px #fdf6e4,
+    0 0 0 3px var(--border);
+}
+
+
+/* nav */
+nav {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--gold); }
+
+/* header */
+header { margin-bottom: 1rem; }
+
+.header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.header-text { flex: 1; }
+
+.avatar {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+  border: 4px solid var(--border);
+  box-shadow: inset 0 0 0 2px #fdf6e4, 3px 3px 0 var(--border);
+  background: var(--panel-dk);
+  position: relative;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 28px;
+  color: var(--muted);
+}
+
+/* hide placeholder when image loads */
+.avatar img + .avatar-placeholder { display: none; }
+
+header h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 15px;
+  color: var(--gold);
+  text-shadow: 2px 2px 0 var(--border);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.tagline { color: var(--green); margin-bottom: 0.4rem; }
+
+.socials a { color: var(--muted); text-decoration: none; }
+.socials a:hover { color: var(--link); }
+
+/* divider — simple solid line, fits the warm palette */
+hr {
+  border: none;
+  border-top: 3px solid var(--border);
+  margin: 2rem 0;
+  position: relative;
+}
+
+hr::after {
+  content: '✦';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  background: var(--panel);
+  color: var(--gold);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 0 10px;
+}
+
+/* section headers — stardew banner/scroll style */
+h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--text);
+  background: var(--panel-dk);
+  border: 2px solid var(--border);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+h3 {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  margin-bottom: 0.1rem;
+}
+
+h3 a { color: var(--text); text-decoration: none; }
+h3 a:hover { color: var(--border); }
+
+p { margin-bottom: 0.7rem; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* articles */
+article {
+  margin-bottom: 2.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  transition: border-color 0.15s;
+}
+
+article:hover { border-left-color: var(--gold); }
+
+.meta {
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 0.3rem;
+}
+
+.links { font-size: 17px; }
+.links a { color: var(--green); }
+.links a:hover { color: var(--border); text-decoration: underline; }
+
+/* lists */
+ul { list-style: none; padding-left: 0.2rem; }
+
+ul li {
+  margin-bottom: 0.3rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+ul li::before {
+  content: '▸';
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+}
+
+/* images */
+img { image-rendering: pixelated; max-width: 100%; }
+
+/* footer */
+footer {
+  font-size: 17px;
+  color: var(--muted);
+  text-align: center;
+}
+
+footer p::before {
+  content: '✦  ';
+  color: var(--gold);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+}
+
+footer p::after {
+  content: '  ✦';
+  color: var(--gold);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+}
+
+
+@media (max-width: 480px) {
+  header h1 { font-size: 11px; }
+  nav { gap: 1rem; }
+  body { margin: 0; padding: 1.5rem 1rem 3rem; }
+  .header-inner { flex-direction: column; }
+  .avatar { width: 80px; height: 80px; }
+}
