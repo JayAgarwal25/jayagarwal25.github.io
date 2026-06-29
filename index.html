@@ -3,9 +3,288 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jay Agarwal — CS &amp; Physics @ BITS Pilani. Research in symmetry-aware ML, mechanistic interpretability of equivariant models, and LLMs.">
   <title>Jay Agarwal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="margin:0;height:100vh;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
-  <p>Hi, this is a work in progress!</p>
+<body>
+
+  <!-- orbital geometry background -->
+  <svg class="bg-orbits bg-orbits-right" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" stroke-width="0.6">
+      <ellipse cx="300" cy="300" rx="270" ry="110" transform="rotate(-15 300 300)"/>
+      <ellipse cx="300" cy="300" rx="200" ry="80"  transform="rotate(20 300 300)"/>
+      <ellipse cx="300" cy="300" rx="130" ry="55"  transform="rotate(55 300 300)"/>
+      <ellipse cx="300" cy="300" rx="72"  ry="32"  transform="rotate(80 300 300)"/>
+      <circle  cx="300" cy="300" r="5"/>
+      <line x1="300" y1="30"  x2="300" y2="44"  transform="rotate(0   300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(45  300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(90  300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(135 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(180 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(225 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(270 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(315 300 300)"/>
+    </g>
+  </svg>
+
+  <!-- ─── sticky menu bar ─── -->
+  <header class="menubar">
+    <a href="#" class="cat-logo" aria-label="Home">
+      <svg width="18" height="14" viewBox="0 0 9 7" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="0" y="0" width="1" height="1" fill="currentColor"/>
+        <rect x="8" y="0" width="1" height="1" fill="currentColor"/>
+        <rect x="0" y="1" width="2" height="1" fill="currentColor"/>
+        <rect x="7" y="1" width="2" height="1" fill="currentColor"/>
+        <rect x="0" y="2" width="9" height="1" fill="currentColor"/>
+        <rect x="0" y="3" width="1" height="1" fill="currentColor"/>
+        <rect x="2" y="3" width="5" height="1" fill="currentColor"/>
+        <rect x="8" y="3" width="1" height="1" fill="currentColor"/>
+        <rect x="0" y="4" width="4" height="1" fill="currentColor"/>
+        <rect x="5" y="4" width="4" height="1" fill="currentColor"/>
+        <rect x="0" y="5" width="9" height="1" fill="currentColor"/>
+        <rect x="1" y="6" width="7" height="1" fill="currentColor"/>
+      </svg>
+    </a>
+    <nav aria-label="Site sections">
+      <a href="#bio">bio</a>
+      <a href="#research">research</a>
+      <a href="#projects">projects</a>
+      <a href="#misc">misc</a>
+    </nav>
+    <button id="theme-btn" aria-label="Toggle colour theme">◐</button>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         BIO
+    ═══════════════════════════════════════════ -->
+    <section class="s" id="bio">
+      <div class="bio-layout">
+        <figure class="portrait-frame">
+          <img src="pfp.jpeg" alt="Jay Agarwal" class="portrait-img">
+        </figure>
+
+        <div class="bio-content">
+          <h1>Jay Agarwal</h1>
+
+          <p>
+            Hi! I'm a 4th year dual major in Physics and Computer Science at BITS Pilani. I'm most
+            interested in AI for particle physics and problems where mathematical structure shows up. This led me to work with <a href="https://kudhru.github.io/" target="_blank" rel="noopener">Prof. Dhruv Kumar</a> on mechanistic
+            interpretability of symmetry-aware models for the LHC and down a rabbit hole
+            into mech interp more broadly. 
+          </p>
+          <p> 
+            I'm also part of the
+            TAMBO Collaboration, working with <a href="https://userswww.pd.infn.it/~dorigo/" target="_blank" rel="noopener">Tommaso Dorigo</a> and the <a href="https://mode-collaboration.github.io/" target="_blank" rel="noopener">MODE Collaboration</a> on
+            optimizing detector layouts using differentiable programming.
+          </p>
+          <p>
+            Currently I'm working at Wells Fargo as a Quant Intern in the Causal Inference team.  I'm trying to learn a bit more about other mathematical concepts in finance too. 
+            Suprisingly, it's not very different!
+          </p>
+          <p>
+            In the past, I interned at <a href="https://drdo.gov.in/drdo/en/" target="_blank" rel="noopener">DRDO</a>'s Quantum Technology division with Dr. Poornendu
+            Chaturvedi to work on atomic frequency standards and then worked with <a href="https://scholar.google.com/citations?user=SBkSMJhqTGcC&hl=en" target="_blank" rel="noopener">Prof. Amol Holkundkar</a> at BITS on simulating radiative
+            recombination in intense laser fields.
+          </p>
+          <p>
+            I love studying Physics and Maths in general, Group Theory especially and have been
+            trying to read more particle physics and QFT. I have a large backlog of almost-finished
+            projects from the past year or two unfortunately :( This website is one of them. 
+            So, please don't mind if some things are not working :)
+          </p>
+
+          <div class="bio-links">
+            <a href="mailto:jay25official@gmail.com">[email]</a>
+            <a href="https://github.com/JayAgarwal25" target="_blank" rel="noopener">[github]</a>
+            <a href="#" target="_blank" rel="noopener">[cv]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         RESEARCH
+    ═══════════════════════════════════════════ -->
+    <section class="s" id="research">
+      <h2 class="s-label">research</h2>
+
+      <article class="paper-row wip">
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Distilling Lorentz-Equivariant Transformers for Efficient Jet Tagging</a></h3>
+          <p class="paper-authors">Siddharth Khare, <span class="me">Jay Agarwal</span>, Dhruv Kumar</p>
+          <p class="paper-venue">Preprint out soon!</p>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/lgatr_interp1.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">What Do Lorentz-Equivariant Jet Taggers Learn?</a></h3>
+          <p class="paper-authors"><span class="me">Jay Agarwal</span>, Siddharth Khare, Dhruv Kumar</p>
+          <p class="paper-venue">ICML, 2026 &middot; <a href="https://ai4physics-workshop.github.io/" target="_blank" rel="noopener">AI4Physics Workshop</a></p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2606.21790" target="_blank" rel="noopener">[arxiv]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/tambo.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Detector Layout Optimization for the TAMBO Neutrino Observatory</a></h3>
+          <p class="paper-authors"><a href="https://tambo.hsites.harvard.edu/" target="_blank" rel="noopener">TAMBO Collaboration</a>, <a href="https://mode-collaboration.github.io/" target="_blank" rel="noopener">MODE Collaboration</a></p>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/drdo.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Simulation Software for Atom-Light Interactions</a></h3>
+          <p class="paper-authors"><span class="me">Jay Agarwal</span>, Adit Dudani, Poornendu Chaturvedi</p>
+          <div class="paper-links">
+            <a href="#">[ppt]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/LARR.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">LARR Dynamics in Intense Laser Fields</a></h3>
+          <p class="paper-authors"><span class="me">Jay Agarwal</span>, Amol Holkundkar</p>
+          <p class="paper-venue">Design Oriented Project</p>
+          <div class="paper-links">
+            <a href="https://github.com/JayAgarwal25/LARR" target="_blank" rel="noopener">[code]</a>
+            <a href="docs/LARR_Project_Report.pdf" target="_blank">[report]</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PROJECTS
+    ═══════════════════════════════════════════ -->
+    <section class="s" id="projects">
+      <h2 class="s-label">projects</h2>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/spatial_reasoning.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Detecting Quantitative Spatial Inconsistencies in Vision-Language Outputs via Residual-Aware Graph Reasoning</a></h3>
+          <p class="paper-authors"><span class="me">Jay Agarwal</span>, Gorang Mehrishi, Mayukh Khetan, Harsimar Singh Saluja</p>
+          <p class="paper-venue">Deep Learning course project</p>
+          <div class="paper-links">
+            <a href="#">[code]</a>
+            <a href="docs/spatial_reasoning_draft.pdf" target="_blank">[draft]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/llm_hallucination.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Beating Hallucinations via Uncertainty-Conditioned Attention Gating</a></h3>
+          <p class="paper-authors">Yaawar Askari, <span class="me">Jay Agarwal</span>, Abhimanyu Bhowmik, Aman Agarwal, Dhruv Kumar</p>
+          <p class="paper-venue">Intro to LLMs course project</p>
+          <div class="paper-links">
+            <a href="#">[code]</a>
+            <a href="docs/Beating_Hallucinations_via_Uncertainty_Conditioned_Attention_Gating_draft.pdf" target="_blank">[draft]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/Neutrino_spectrum_lab_frame.png" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Monte Carlo Methods in Physics</a></h3>
+          <p class="paper-authors"><span class="me">Jay Agarwal</span>, Bhavesh Chauhan</p>
+          <p class="paper-venue">Computational Physics course project</p>
+          <div class="paper-links">
+            <a href="https://github.com/JayAgarwal25/Bivariate_Sampling" target="_blank" rel="noopener">[code — bivariate]</a>
+            <a href="https://github.com/JayAgarwal25/Neutrino_spectrum_simulation/tree/main" target="_blank" rel="noopener">[code — neutrino]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper-row">
+        <div class="paper-thumb" aria-hidden="true">
+          <img src="pictures/amazon.jpg" alt="">
+        </div>
+        <div class="paper-info">
+          <h3 class="paper-title"><a href="#">Amazon ML Challenge 2025</a></h3>
+          <p class="paper-authors">Saksham Gupta, Aman Agarwal, <span class="me">Jay Agarwal</span></p>
+          <p class="paper-venue">Peak rank 8 / 20,000+ teams</p>
+          <div class="paper-links">
+            <a href="#">[code]</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         MISC
+    ═══════════════════════════════════════════ -->
+    <section class="s" id="misc">
+      <h2 class="s-label">misc</h2>
+
+      <p class="dim" style="font-size:12px;">to be updated</p>
+
+      <p class="misc-footer dim">&copy; Jay Agarwal</p>
+    </section>
+
+  </main>
+
+  <svg class="bg-orbits bg-orbits-left" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" stroke-width="0.6">
+      <ellipse cx="300" cy="300" rx="270" ry="110" transform="rotate(-15 300 300)"/>
+      <ellipse cx="300" cy="300" rx="200" ry="80"  transform="rotate(20 300 300)"/>
+      <ellipse cx="300" cy="300" rx="130" ry="55"  transform="rotate(55 300 300)"/>
+      <ellipse cx="300" cy="300" rx="72"  ry="32"  transform="rotate(80 300 300)"/>
+      <circle  cx="300" cy="300" r="5"/>
+      <line x1="300" y1="30"  x2="300" y2="44"  transform="rotate(0   300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(45  300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(90  300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(135 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(180 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(225 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(270 300 300)"/>
+      <line x1="300" y1="30"  x2="300" y2="40"  transform="rotate(315 300 300)"/>
+    </g>
+  </svg>
+
+  <script>
+    const btn = document.getElementById('theme-btn');
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.add('light');
+    }
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
