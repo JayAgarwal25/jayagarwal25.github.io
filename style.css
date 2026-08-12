@@ -202,6 +202,26 @@ main {
   text-shadow: none;
 }
 
+/* ─── recent (highlight box) ─────────────────────────────────── */
+.recent-box {
+  margin-bottom: 72px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  scroll-margin-top: 52px;
+}
+.highlight-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  text-transform: lowercase;
+  margin-bottom: 10px;
+}
+.recent-box .misc-list {
+  margin-bottom: 0;
+}
+
 /* ─── about ──────────────────────────────────────────────────── */
 #experience p {
   font-size: 12px;
