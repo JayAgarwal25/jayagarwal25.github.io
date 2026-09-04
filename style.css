@@ -52,7 +52,7 @@ a:hover {
   position: absolute;
   width: min(56vw, 520px);
   height: auto;
-  opacity: 0.07;
+  opacity: 0.16;
   pointer-events: none;
   z-index: 0;
   color: white;
@@ -205,9 +205,6 @@ main {
 /* ─── recent (highlight box) ─────────────────────────────────── */
 .recent-box {
   margin-bottom: 72px;
-  padding: 16px 20px;
-  border: 1px solid var(--border);
-  background: var(--surface);
   scroll-margin-top: 52px;
 }
 .highlight-label {
@@ -401,7 +398,7 @@ main {
 }
 :root.light .bg-orbits {
   color: #1a1a1a;
-  opacity: 0.08;
+  opacity: 0.14;
 }
 :root.light a:hover {
   text-shadow: none;
