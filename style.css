@@ -50,26 +50,6 @@ a:hover {
   text-decoration-color: var(--accent);
 }
 
-/* ─── orbital background SVG ─────────────────────────────────── */
-.bg-orbits {
-  position: absolute;
-  width: min(56vw, 520px);
-  height: auto;
-  opacity: 0.16;
-  pointer-events: none;
-  z-index: 0;
-  color: white;
-}
-.bg-orbits-right {
-  top: 10%;
-  right: -10%;
-}
-.bg-orbits-left {
-  bottom: 5%;
-  left: -10%;
-  transform: scaleX(-1);
-}
-
 /* ─── menu bar ───────────────────────────────────────────────── */
 .menubar {
   position: sticky;
@@ -182,6 +162,7 @@ main {
 }
 
 .portrait-frame {
+  position: relative;
   flex-shrink: 0;
   border: 1px solid var(--border);
   background: #090909;
@@ -211,22 +192,58 @@ main {
 
 .bio-links {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-top: 22px;
+  margin-top: 24px;
 }
 .bio-links a {
   font-size: 11px;
   text-decoration: none;
-  border: 1px solid var(--border);
-  padding: 3px 10px;
-  color: var(--text-dim);
+  border: 1px solid var(--border-hi);
+  border-radius: 999px;
+  padding: 4px 16px;
+  color: var(--text-mid);
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 .bio-links a:hover {
-  color: var(--accent);
+  color: var(--bg);
+  background: var(--accent);
   border-color: var(--accent);
-  background: transparent;
   text-shadow: none;
+}
+/* cat ears: pop up on hover */
+.bio-links a {
+  position: relative;
+}
+.bio-links a::before,
+.bio-links a::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-width: 0 5px 8px 5px;
+  border-bottom-color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+}
+.bio-links a::before {
+  left: 11px;
+  transform: translateY(4px) rotate(-14deg);
+}
+.bio-links a::after {
+  right: 11px;
+  transform: translateY(4px) rotate(14deg);
+}
+.bio-links a:hover::before {
+  opacity: 1;
+  transform: translateY(-6px) rotate(-14deg);
+}
+.bio-links a:hover::after {
+  opacity: 1;
+  transform: translateY(-6px) rotate(14deg);
 }
 
 /* ─── recent (highlight box) ─────────────────────────────────── */
@@ -358,6 +375,11 @@ main {
   text-shadow: none;
 }
 
+.paper-row:has(+ .misc-footer) {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 .paper-row.wip { opacity: 0.52; }
 
 .paper-desc {
@@ -395,6 +417,7 @@ main {
   font-size: 10px;
   color: var(--text-faint);
   border-top: 1px solid var(--text-faint);
+  margin-top: 36px;
   padding-top: 14px;
   letter-spacing: 0.06em;
   text-align: center;
@@ -427,10 +450,6 @@ main {
 :root.light .portrait-frame {
   background: #e4e4e2;
 }
-:root.light .bg-orbits {
-  color: #1a1a1a;
-  opacity: 0.14;
-}
 :root.light a:hover {
   text-shadow: none;
 }
@@ -438,8 +457,6 @@ main {
 
 /* ─── responsive ─────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .bg-orbits { display: none; }
-
   .bio-layout {
     flex-direction: column;
     align-items: center;
