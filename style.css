@@ -192,58 +192,52 @@ main {
 
 .bio-links {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin-top: 26px;
 }
+/* pixel buttons: 2px blocks, corners left out */
 .bio-links a {
+  --pc: var(--border-hi);
+  position: relative;
   font-size: 11px;
   text-decoration: none;
-  border: 1px solid var(--border-hi);
-  border-radius: 999px;
-  padding: 4px 16px;
+  border: 0;
+  margin: 2px;
+  padding: 5px 16px;
   color: var(--text-mid);
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  box-shadow: 0 -2px 0 0 var(--pc), 0 2px 0 0 var(--pc), -2px 0 0 0 var(--pc), 2px 0 0 0 var(--pc);
+  transition: color 0.12s steps(2), background 0.12s steps(2), box-shadow 0.12s steps(2);
 }
 .bio-links a:hover {
+  --pc: var(--accent);
   color: var(--bg);
   background: var(--accent);
-  border-color: var(--accent);
   text-shadow: none;
 }
-/* cat ears: pop up on hover */
-.bio-links a {
-  position: relative;
-}
+/* pixel cat ears, shown on hover */
 .bio-links a::before,
 .bio-links a::after {
   content: '';
   position: absolute;
-  top: -1px;
-  width: 0;
-  height: 0;
-  border: 0 solid transparent;
-  border-width: 0 5px 8px 5px;
-  border-bottom-color: var(--accent);
+  top: -8px;
+  width: 2px;
+  height: 2px;
+  background: var(--accent);
+  box-shadow:
+    -2px 2px 0 var(--accent), 0 2px 0 var(--accent), 2px 2px 0 var(--accent),
+    -4px 4px 0 var(--accent), -2px 4px 0 var(--accent), 0 4px 0 var(--accent), 2px 4px 0 var(--accent), 4px 4px 0 var(--accent);
   opacity: 0;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translateY(4px);
+  transition: opacity 0.12s steps(2), transform 0.12s steps(2);
   pointer-events: none;
 }
-.bio-links a::before {
-  left: 11px;
-  transform: translateY(4px) rotate(-14deg);
-}
-.bio-links a::after {
-  right: 11px;
-  transform: translateY(4px) rotate(14deg);
-}
-.bio-links a:hover::before {
-  opacity: 1;
-  transform: translateY(-6px) rotate(-14deg);
-}
+.bio-links a::before { left: 14px; }
+.bio-links a::after  { right: 14px; }
+.bio-links a:hover::before,
 .bio-links a:hover::after {
   opacity: 1;
-  transform: translateY(-6px) rotate(14deg);
+  transform: translateY(0);
 }
 
 /* ─── recent (highlight box) ─────────────────────────────────── */
@@ -375,11 +369,6 @@ main {
   text-shadow: none;
 }
 
-.paper-row:has(+ .misc-footer) {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
 .paper-row.wip { opacity: 0.52; }
 
 .paper-desc {
@@ -416,11 +405,57 @@ main {
 .misc-footer {
   font-size: 10px;
   color: var(--text-faint);
-  border-top: 1px solid var(--text-faint);
-  margin-top: 36px;
-  padding-top: 14px;
+  margin-top: 10px;
   letter-spacing: 0.06em;
   text-align: center;
+}
+
+/* ─── cat ────────────────────────────────────────────────────── */
+.cat { overflow: visible; }
+.cat .lid { opacity: 0; animation: blink-eyes 5s infinite; }
+@keyframes blink-eyes {
+  0%, 94%, 100% { opacity: 0; }
+  96%, 98%      { opacity: 1; }
+}
+.cat .ear { transition: transform 0.12s steps(1); }
+.cat-logo:hover .ear-l { animation: twitch 0.5s steps(1) 1; }
+.cat-logo:hover .ear-r { animation: twitch 0.5s steps(1) 0.15s 1; }
+@keyframes twitch {
+  0%, 100% { transform: translateY(0); }
+  25%, 75% { transform: translateY(-1px); }
+}
+
+.misc-footer-cat {
+  margin-top: 36px;
+  text-align: center;
+  color: var(--text-dim);
+}
+.sleepy {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.zzz {
+  font-size: 10px;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.zzz span {
+  display: inline-block;
+  opacity: 0;
+  animation: float-z 3s infinite;
+}
+.zzz span:nth-child(2) { animation-delay: 0.7s; font-size: 12px; }
+.zzz span:nth-child(3) { animation-delay: 1.4s; font-size: 14px; }
+@keyframes float-z {
+  0%   { opacity: 0; transform: translateY(4px); }
+  30%, 70% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat .lid, .zzz span { animation: none; }
+  .zzz span { opacity: 1; }
 }
 
 /* ─── utilities ──────────────────────────────────────────────── */
