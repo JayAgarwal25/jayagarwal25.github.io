@@ -312,6 +312,26 @@
       document.documentElement.classList.toggle('light');
       localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
     });
+
+    // scroll-spy: blinking cursor and accent on the section being read
+    const spyIds = ['recent', 'experience', 'research', 'projects', 'misc'];
+    const spyNav = document.querySelectorAll('.menubar nav a');
+    function spy() {
+      let cur = null;
+      for (const id of spyIds) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
+      }
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = 'misc';
+      for (const id of spyIds) {
+        const lab = document.querySelector('#' + id + ' .s-label, #' + id + ' .highlight-label');
+        if (lab) lab.classList.toggle('active', id === cur);
+      }
+      spyNav.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+    }
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('resize', spy);
+    spy();
   </script>
 </body>
 </html>
